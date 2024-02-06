@@ -1,5 +1,14 @@
 # EngWeb2024
 
-## Título 2
+## Unidade Curricular
 
-## Título 3
+**Nome:** Engenharia WEB
+**Sigla:** EW
+**Ano:** 2024
+
+## Aluno
+
+**Nome:** Guilherme Oliveira
+**ID:** a95021
+**Fotografia:**
+![Fotografia do aluno](./myfoto.jpg)
