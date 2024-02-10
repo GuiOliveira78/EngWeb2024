@@ -15,4 +15,5 @@
 **ID:** a95021
 
 **Fotografia:**
-![Fotografia do aluno](./myfoto.jpg)
+
+<img src=https://i.imgur.com/ag9VyrP.jpg alt="Fotografia" style="width:20%;">
