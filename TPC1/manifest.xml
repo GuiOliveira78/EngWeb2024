@@ -15,7 +15,7 @@
     </meta>
     <resumo>
         <p>primeiro paragrafo</p>
-        Segundo
-        Terceiro <url>link</p>
+        <p>Segundo Parágrafo</p>
+        <p>Terceiro Paragrafo com <url>link</url>url embutido</p>
     </resumo>
 </doc>
