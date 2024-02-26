@@ -9,7 +9,7 @@ EW 2024
 
 ### Resumo
 
-Este TPC consistiu em crir um server em javascript que, atráves de um *dataset* de uma escola de música, respondesse a algumas funcionalidades.
+Este TPC consistiu em criar um server em javascript que, atráves de um *dataset* de uma escola de música, respondesse a algumas funcionalidades.
 
 ### Implementação
 
