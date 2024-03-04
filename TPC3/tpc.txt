@@ -1,0 +1,15 @@
+filme
+    title
+    year
+    cast *
+    genre *
+
+TPC3
+1. Análise do dataset e criação da BD em json.server; (criar coleções redundantes para responder a certos pedidos)
+2. Serviço que responde na porta XXXX às seguintes rotas:
+    - GET /filmes  --> listagem dos filmes, cada entrada é link para a página de filme;
+    - GET /filmes/idFilme  --> toda a informação do filme (* importante)
+    - GET /generos  --> 
+    - GET /generos/idGen  --> 
+    - GET /ator  --> 
+    - GET /ator/idAtor  --> 
