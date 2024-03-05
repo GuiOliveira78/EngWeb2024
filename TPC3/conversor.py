@@ -18,26 +18,23 @@ def read_json_file(file_path):
 
 
 
-def pertence(valor, lista):
-    return valor in lista
-    
-    '''
+def pertenceFilmes(valor, lista):
     encontrado = False
     i = 0
     while i < len(lista) and not encontrado:
-        if lista[i]['designacao'] == valor:
+        if lista[i]['title'] == valor:
             encontrado = True
         i += 1
     return encontrado
-    '''
+
 
 def calc_filmes(bd):
     filmes = []
     for reg in bd:
         if 'title' in reg and 'year' in reg and 'cast' in reg and 'genres' in reg:
-            if not pertence(reg, filmes) and reg != '':
+            if not pertenceFilmes(reg, filmes) and reg != '':
                     filmes.append({
-                        'id' : reg['_id']['$oid'],
+                        'idFilme' : reg['_id']['$oid'],
                         'title' : reg['title'],
                         'year' : reg['year'],
                         'cast' : reg['cast'],
@@ -45,9 +42,9 @@ def calc_filmes(bd):
                     })
                     
         elif 'genres' not in reg:
-            if not pertence(reg, filmes) and reg != '':
+            if not pertenceFilmes(reg, filmes) and reg != '':
                     filmes.append({
-                        'id' : reg['_id']['$oid'],
+                        'idFilme' : reg['_id']['$oid'],
                         'title' : reg['title'],
                         'year' : reg['year'],
                         'cast' : reg['cast'],
@@ -56,19 +53,37 @@ def calc_filmes(bd):
     return filmes
 
 
+def pertenceGeneros(valor, lista):
+    encontrado = False
+    i = 0
+    while i < len(lista) and not encontrado:
+        if lista[i]['genero'] == valor:
+            encontrado = True
+        i += 1
+    return encontrado
+
 def calc_generos(bd):
     generos = []
     id_gen = 0
     for reg in bd:
         if 'genres' in reg:
             for gen in reg['genres']:
-                if not pertence(gen, generos) and gen != '':
+                if not pertenceGeneros(gen, generos) and gen != '':
                     generos.append({
-                        'id' : f"{id_gen}",
+                        'idGen' : f"{id_gen}",
                         'genero' : gen
                     })
                     id_gen += 1
     return generos
+
+def pertenceAtores(valor, lista):
+    encontrado = False
+    i = 0
+    while i < len(lista) and not encontrado:
+        if lista[i]['nome'] == valor:
+            encontrado = True
+        i += 1
+    return encontrado
 
 def calc_atores(bd):
     atores = []
@@ -76,15 +91,17 @@ def calc_atores(bd):
     for reg in bd:
         if 'cast' in reg:
             for ator in reg['cast']:
-                if not pertence(ator, atores) and ator != '':
+                if not pertenceAtores(ator, atores) and ator != '':
                     atores.append({
-                        'id' : f"{id_ator}",
+                        'idAtor' : f"{id_ator}",
                         'nome' : ator,
                         "filmes" : [reg['title']]
                     })
                     id_ator += 1
-                elif pertence(ator, atores) and ator != '':
-                    atores[ator]['filmes'].append(reg['title'])
+                elif pertenceAtores(ator, atores) and ator != '':
+                    for a in atores:
+                        if a['nome'] == ator:
+                            a['filmes'].append(reg['title'])
 
     return atores
 
