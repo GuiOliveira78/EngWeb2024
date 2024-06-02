@@ -17,7 +17,8 @@ block content
                 
                 each compositor in compositores
                     tr
-                        td= compositores.id
+                        td
+                            a(href="/compositores/" + compositor.id)= compositor.id
                         td
                             a(href="/compositores/" + compositor.id)= compositor.nome
                     

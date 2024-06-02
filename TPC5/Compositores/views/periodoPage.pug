@@ -1,0 +1,32 @@
+extends layout 
+
+block content 
+    .w3-card-4
+        header.w3-container.w3-teal
+            h1 Período #{periodo.id}
+
+        .w3-container
+            ul.w3-ul.w3-card-4(style="width:50%")
+                    li
+                        b Período: 
+                        span= periodo.periodo
+                    li
+                        b Id: 
+                        span= periodo.id
+                    li
+                        b Compositores: 
+                        ul
+                            each compositor in periodo.compositores
+                                li
+                                    a(href="/compositores/" + compositor.id)= compositor.nome
+
+        .w3-container.w3-margin-8
+            ul.w3-ul
+            
+    
+
+        footer.w3-container.w3-teal
+            address
+                span Gerado por Guilherme Oliveira em #{date} - [
+                a(href="/") Voltar
+                span ]
